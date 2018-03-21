@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace nfc.Api.Models
 {
-    public partial class User
+    public class Usuario
     {
-
-        [Key]
         public int Id { get; set; }
-        public string UserName { get; set; }
+        public string Nome { get; set; }
+        public string Telefone { get; set; }
+        public bool Ativo { get; set; }
         public string Email { get; set; }
-        public string Password { get; set; }
+        public string Senha { get; set; }
     }
 }
 
