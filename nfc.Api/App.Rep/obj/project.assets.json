@@ -1943,11 +1943,11 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "C:\\Users\\lucas.arcega\\Source\\Repos\\nfc\\Api\\nfc.Api\\nfc.Lib\\App.Rep.csproj",
+      "projectUniqueName": "C:\\Users\\lucas.arcega\\Source\\Repos\\nfc\\Api\\nfc.Api\\App.Rep\\App.Rep.csproj",
       "projectName": "App.Rep",
-      "projectPath": "C:\\Users\\lucas.arcega\\Source\\Repos\\nfc\\Api\\nfc.Api\\nfc.Lib\\App.Rep.csproj",
+      "projectPath": "C:\\Users\\lucas.arcega\\Source\\Repos\\nfc\\Api\\nfc.Api\\App.Rep\\App.Rep.csproj",
       "packagesPath": "C:\\Users\\lucas.arcega\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\lucas.arcega\\Source\\Repos\\nfc\\Api\\nfc.Api\\nfc.Lib\\obj\\",
+      "outputPath": "C:\\Users\\lucas.arcega\\Source\\Repos\\nfc\\Api\\nfc.Api\\App.Rep\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

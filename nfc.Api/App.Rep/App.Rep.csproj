@@ -9,9 +9,4 @@
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="2.0.1" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="DAL\" />
-    <Folder Include="Services\" />
-  </ItemGroup>
-
 </Project>
