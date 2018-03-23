@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace nfc.Api.Models
+namespace App.Rep.Entities
 {
     public class Usuario
     {

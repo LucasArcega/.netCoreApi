@@ -3,19 +3,17 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace App.Rep.DAL
+namespace App.Rep.Services
 {
-    public interface ISuperDAL<Type>
+    public interface IBaseService<Type>
     {
-        void Inserir(Type entidade);
-
-        void Atualizar(Type entidade);
-
-        void Excluir(int id);
-
         Type Carregar(int id);
 
+        void Salvar(Type entidade);
+
         List<Type> Listar();
+
+        void Deletar(int id);
 
         List<Type> Listar(Filtro filtro);
     }

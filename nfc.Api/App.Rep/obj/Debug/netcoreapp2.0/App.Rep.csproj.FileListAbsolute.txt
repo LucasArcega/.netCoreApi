@@ -4,3 +4,12 @@ C:\Users\lucas.arcega\Source\Repos\nfc\Api\nfc.Api\nfc.Lib\obj\Debug\netcoreapp2
 C:\Users\lucas.arcega\Source\Repos\nfc\Api\nfc.Api\nfc.Lib\obj\Debug\netcoreapp2.0\App.Rep.csproj.CoreCompileInputs.cache
 C:\Users\lucas.arcega\Source\Repos\nfc\Api\nfc.Api\nfc.Lib\obj\Debug\netcoreapp2.0\App.Rep.AssemblyInfoInputs.cache
 C:\Users\lucas.arcega\Source\Repos\nfc\Api\nfc.Api\nfc.Lib\obj\Debug\netcoreapp2.0\App.Rep.AssemblyInfo.cs
+C:\Users\lucas.arcega\Source\Repos\nfc\Api\nfc.Api\App.Rep\obj\Debug\netcoreapp2.0\App.Rep.csprojResolveAssemblyReference.cache
+C:\Users\lucas.arcega\Source\Repos\nfc\Api\nfc.Api\App.Rep\obj\Debug\netcoreapp2.0\App.Rep.csproj.CoreCompileInputs.cache
+C:\Users\lucas.arcega\Source\Repos\nfc\Api\nfc.Api\App.Rep\obj\Debug\netcoreapp2.0\App.Rep.AssemblyInfoInputs.cache
+C:\Users\lucas.arcega\Source\Repos\nfc\Api\nfc.Api\App.Rep\obj\Debug\netcoreapp2.0\App.Rep.AssemblyInfo.cs
+C:\Users\lucas.arcega\Source\Repos\nfc\Api\nfc.Api\App.Rep\bin\Debug\netcoreapp2.0\App.Rep.deps.json
+C:\Users\lucas.arcega\Source\Repos\nfc\Api\nfc.Api\App.Rep\bin\Debug\netcoreapp2.0\App.Rep.dll
+C:\Users\lucas.arcega\Source\Repos\nfc\Api\nfc.Api\App.Rep\bin\Debug\netcoreapp2.0\App.Rep.pdb
+C:\Users\lucas.arcega\Source\Repos\nfc\Api\nfc.Api\App.Rep\obj\Debug\netcoreapp2.0\App.Rep.dll
+C:\Users\lucas.arcega\Source\Repos\nfc\Api\nfc.Api\App.Rep\obj\Debug\netcoreapp2.0\App.Rep.pdb

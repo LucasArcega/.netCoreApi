@@ -19,7 +19,7 @@ namespace App.Rep.DAO
         {
             get
             {
-                return new SqlConnection(this.configuration.GetConnectionString(""));
+                return new SqlConnection(this.configuration["ConnectionStrings:postgres"]);
             }
         }
     }

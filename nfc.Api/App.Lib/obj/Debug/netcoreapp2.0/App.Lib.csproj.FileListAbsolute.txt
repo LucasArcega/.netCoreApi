@@ -1,0 +1,9 @@
+C:\Users\lucas.arcega\Source\Repos\nfc\Api\nfc.Api\App.Lib\bin\Debug\netcoreapp2.0\App.Lib.deps.json
+C:\Users\lucas.arcega\Source\Repos\nfc\Api\nfc.Api\App.Lib\bin\Debug\netcoreapp2.0\App.Lib.dll
+C:\Users\lucas.arcega\Source\Repos\nfc\Api\nfc.Api\App.Lib\bin\Debug\netcoreapp2.0\App.Lib.pdb
+C:\Users\lucas.arcega\Source\Repos\nfc\Api\nfc.Api\App.Lib\obj\Debug\netcoreapp2.0\App.Lib.csprojResolveAssemblyReference.cache
+C:\Users\lucas.arcega\Source\Repos\nfc\Api\nfc.Api\App.Lib\obj\Debug\netcoreapp2.0\App.Lib.csproj.CoreCompileInputs.cache
+C:\Users\lucas.arcega\Source\Repos\nfc\Api\nfc.Api\App.Lib\obj\Debug\netcoreapp2.0\App.Lib.AssemblyInfoInputs.cache
+C:\Users\lucas.arcega\Source\Repos\nfc\Api\nfc.Api\App.Lib\obj\Debug\netcoreapp2.0\App.Lib.AssemblyInfo.cs
+C:\Users\lucas.arcega\Source\Repos\nfc\Api\nfc.Api\App.Lib\obj\Debug\netcoreapp2.0\App.Lib.dll
+C:\Users\lucas.arcega\Source\Repos\nfc\Api\nfc.Api\App.Lib\obj\Debug\netcoreapp2.0\App.Lib.pdb

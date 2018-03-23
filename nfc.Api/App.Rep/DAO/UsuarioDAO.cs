@@ -1,18 +1,24 @@
 ﻿using App.Rep.DAL;
+using App.Rep.Entities;
 using App.Rep.Models;
 using Microsoft.Extensions.Configuration;
-using nfc.Api.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace App.Rep.DAO
 {
-    class UsuarioDAO : DAOSuper, IUsuarioDAL
+    public class UsuarioDAO : DAOSuper, IUsuarioDAL
     {
         public UsuarioDAO(IConfiguration configuration) : base(configuration)
         {
         }
+
+        public void Atualizar(Usuario entidade)
+        {
+            throw new NotImplementedException();
+        }
+
         public Usuario Carregar(int id)
         {
             throw new NotImplementedException();
@@ -23,7 +29,7 @@ namespace App.Rep.DAO
             throw new NotImplementedException();
         }
 
-        public int Inserir(Usuario entidade)
+        public void Inserir(Usuario entidade)
         {
             throw new NotImplementedException();
         }

@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using App.Rep.Entities;
+using App.Rep.IServices;
+using App.Rep.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,7 +14,15 @@ namespace App.Api.Controllers
     [Route("api/Usuario")]
     public class UsuarioController : Controller
     {
-        // GET: api/Usuario
+
+        IUsuarioService usuarioService;
+        
+        public UsuarioController(IUsuarioService service)
+        {
+            usuarioService = service;
+        }
+
+
         [HttpGet]
         public IEnumerable<string> Get()
         {
@@ -27,8 +38,19 @@ namespace App.Api.Controllers
         
         // POST: api/Usuario
         [HttpPost]
-        public void Post([FromBody]string value)
+        public string Post([FromBody]Usuario entidade)
         {
+            try
+            {
+                usuarioService.Salvar(entidade);
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+            return "retprno";
+
         }
         
         // PUT: api/Usuario/5

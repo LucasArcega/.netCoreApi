@@ -1,13 +1,14 @@
 ﻿using App.Rep.DAL;
+using App.Rep.Entities;
+using App.Rep.IServices;
 using App.Rep.Models;
-using nfc.Api.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace App.Rep.Services
 {
-    public class UsuarioService
+    public class UsuarioService:IUsuarioService
     {
         private readonly IUsuarioDAL usuarioDAL;
 
@@ -21,9 +22,13 @@ namespace App.Rep.Services
             return this.usuarioDAL.Carregar(id);
         }
 
-        public int Inserir(Usuario entidade)
+        public void Salvar(Usuario entidade)
         {
-            return this.usuarioDAL.Inserir(entidade);
+            if(entidade.Id>0)
+                usuarioDAL.Atualizar(entidade);
+            else            
+                usuarioDAL.Inserir(entidade);
+            
         }
 
         public List<Usuario> Listar()
@@ -40,6 +45,6 @@ namespace App.Rep.Services
         {
             return this.usuarioDAL.Listar(filtro);
         }
-
+        
     }
 }

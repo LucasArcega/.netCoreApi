@@ -9,3 +9,5 @@ C:\Users\lucas.arcega\Source\Repos\nfc\Api\nfc.Api\App.Api\obj\Debug\netcoreapp2
 C:\Users\lucas.arcega\Source\Repos\nfc\Api\nfc.Api\App.Api\bin\Debug\netcoreapp2.0\App.Api.pdb
 C:\Users\lucas.arcega\Source\Repos\nfc\Api\nfc.Api\App.Api\obj\Debug\netcoreapp2.0\App.Api.dll
 C:\Users\lucas.arcega\Source\Repos\nfc\Api\nfc.Api\App.Api\obj\Debug\netcoreapp2.0\App.Api.pdb
+C:\Users\lucas.arcega\Source\Repos\nfc\Api\nfc.Api\App.Api\bin\Debug\netcoreapp2.0\App.Rep.dll
+C:\Users\lucas.arcega\Source\Repos\nfc\Api\nfc.Api\App.Api\bin\Debug\netcoreapp2.0\App.Rep.pdb
