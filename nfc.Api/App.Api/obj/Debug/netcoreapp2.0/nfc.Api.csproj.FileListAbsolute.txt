@@ -1,8 +1,0 @@
-C:\Users\lucas.arcega\Source\Repos\nfc\Api\nfc.Api\nfc.Api\bin\Debug\netcoreapp2.0\nfc.Api.deps.json
-C:\Users\lucas.arcega\Source\Repos\nfc\Api\nfc.Api\nfc.Api\bin\Debug\netcoreapp2.0\nfc.Api.runtimeconfig.json
-C:\Users\lucas.arcega\Source\Repos\nfc\Api\nfc.Api\nfc.Api\bin\Debug\netcoreapp2.0\nfc.Api.runtimeconfig.dev.json
-C:\Users\lucas.arcega\Source\Repos\nfc\Api\nfc.Api\nfc.Api\bin\Debug\netcoreapp2.0\nfc.Api.dll
-C:\Users\lucas.arcega\Source\Repos\nfc\Api\nfc.Api\nfc.Api\obj\Debug\netcoreapp2.0\nfc.Api.csprojResolveAssemblyReference.cache
-C:\Users\lucas.arcega\Source\Repos\nfc\Api\nfc.Api\nfc.Api\obj\Debug\netcoreapp2.0\nfc.Api.csproj.CoreCompileInputs.cache
-C:\Users\lucas.arcega\Source\Repos\nfc\Api\nfc.Api\nfc.Api\obj\Debug\netcoreapp2.0\nfc.Api.AssemblyInfoInputs.cache
-C:\Users\lucas.arcega\Source\Repos\nfc\Api\nfc.Api\nfc.Api\obj\Debug\netcoreapp2.0\nfc.Api.AssemblyInfo.cs
