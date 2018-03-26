@@ -15,6 +15,7 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.Extensions.Configuration;
 using System.Net.Mail;
 using System.Net;
+using System.Security.Cryptography;
 
 namespace App.Rep.Services
 {
@@ -24,6 +25,7 @@ namespace App.Rep.Services
         private TokenConfigurations tokenConfigurations;
         private SigningConfigurations signingConfiguration;
         private IConfiguration configuration;
+        
 
         public UsuarioService(IUsuarioDAL usuarioDAL, [FromServices] TokenConfigurations tokenConfigurations, [FromServices] SigningConfigurations signingConfiguration, IConfiguration configuration)
         {
@@ -52,7 +54,7 @@ namespace App.Rep.Services
             }                
             else
             {
-                entidade.Senha = CriptografarSenha(entidade);
+                entidade.Senha = CriptografarSenha(entidade.Senha);
                 usuarioDAL.Inserir(entidade);
             }                            
         }
@@ -132,8 +134,7 @@ namespace App.Rep.Services
         {
             LoginModel loginModel = new LoginModel();
             loginModel.Authenticated = false;
-            usuarioEntrada.Senha = CriptografarSenha(usuarioEntrada);
-            var senhaValida = VerificarSenha(usuarioDb, usuarioEntrada.Senha);
+            var senhaValida = VerificarSenha(usuarioEntrada.Senha, usuarioDb.Senha);
 
             if (senhaValida)
             {
@@ -147,16 +148,30 @@ namespace App.Rep.Services
         /// </summary>
         /// <param name="usuario"></param>
         /// <returns></returns>
-        public static string CriptografarSenha(Usuario usuario)
+        private string CriptografarSenha(string senha)
         {
-            PasswordHasher<Usuario> pass = new PasswordHasher<Usuario>();
-            return pass.HashPassword(usuario, usuario.Senha);
+            HashAlgorithm algoritmo = SHA512.Create();
+            var valorCodificado = Encoding.UTF8.GetBytes(senha);
+
+            var senhaCifrada = algoritmo.ComputeHash(valorCodificado);
+            var sb = new StringBuilder();
+
+            foreach (var caractere in senhaCifrada)
+            {
+
+                sb.Append(caractere.ToString("X2"));
+
+            }
+
+            return sb.ToString();
+
         }
 
-        public static bool VerificarSenha(Usuario usuario, string hash)
+
+
+        public bool VerificarSenha(string senhaDigitada, string senhaCadastrada)
         {
-            PasswordHasher<Usuario> pass = new PasswordHasher<Usuario>();
-            return (pass.VerifyHashedPassword(usuario, usuario.Senha, hash) != PasswordVerificationResult.Failed);
+            return CriptografarSenha(senhaDigitada) == senhaCadastrada;
         }
 
     }

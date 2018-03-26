@@ -19,7 +19,5 @@ namespace App.Lib.Models
         public bool Sucesso { get; set; }
         public string Mensagem { get; set; }
         public List<string> TempoExecucao { get; set; }
-        public DateTime? ValidadeSessaoUsuario { get; set; }
-        public DateTime? ExpiracaoBloqueio { get; set; }
     }
 }

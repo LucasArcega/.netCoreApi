@@ -35,14 +35,26 @@ namespace App.Api.Controllers
             RetornoModel<LoginModel, HttpStatusCode> retorno = new RetornoModel<LoginModel, HttpStatusCode>();
             retorno.Sucesso = true;
             retorno.Tipo = HttpStatusCode.OK;
-            retorno.Mensagem = "Usuário cadastrado com sucesso!";
+            retorno.Mensagem = "Login realizado com sucesso.";
 
             try
             {
                 if (ModelState.IsValid)
                 {
-                    usuarioService.Salvar(usuario);                                                         
+                    var usuarioDb = usuarioService.Carregar(usuario.Login);
+
+                    if (usuarioDb != null)
+                    {
+                        retorno.Retorno = usuarioService.Login(usuario, usuarioDb);
+                    }
+                    else{
+                        retorno.Sucesso = false;
+                        retorno.Tipo = HttpStatusCode.BadRequest;
+                        retorno.Mensagem = "Usuário não cadastrado.";
+                    }
+                    
                 }
+
                 else
                 {
                     retorno.Sucesso = false;
