@@ -8,5 +8,6 @@ namespace App.Rep.DAL
 {
     public interface IUsuarioDAL:ISuperDAL<Usuario>
     {
+        Usuario Carregar(string login);
     }
 }

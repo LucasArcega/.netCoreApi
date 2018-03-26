@@ -10,7 +10,7 @@ namespace App.Lib.Helpers
     {
         public static string GetInsertQuery(object entity)
         {
-            string retorno = string.Format("INSERT INTO {0} (colunas) OUTPUT Inserted.PK VALUES (valores);", entity.GetType().Name);
+            string retorno = string.Format("INSERT INTO {0} (colunas) VALUES (valores);", entity.GetType().Name);
             List<string> colunas = new List<string>();
             List<string> valores = new List<string>();
 

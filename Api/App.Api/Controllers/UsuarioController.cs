@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
+using App.Lib.Models;
 using App.Rep.Entities;
 using App.Rep.IServices;
 using App.Rep.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -42,8 +45,7 @@ namespace App.Api.Controllers
         public string Get(int id)
         {
             return "value";
-        }
-        
+        }        
         
         /// <summary>
         /// Cadastra um novo usuário
@@ -51,47 +53,109 @@ namespace App.Api.Controllers
         /// <param name="entidade"></param>
         /// <returns></returns>
         [HttpPost]
-        public string Post([FromBody]Usuario entidade)
+        public RetornoModel<bool,HttpStatusCode> Post([FromBody]Usuario entidade)
         {
+            RetornoModel<bool,HttpStatusCode> retorno = new RetornoModel<bool,HttpStatusCode>();
+            retorno.Sucesso = true;
+            retorno.Tipo = HttpStatusCode.OK;
             try
             {
-                usuarioService.Salvar(entidade);
+                if (ModelState.IsValid)
+                {
+                    usuarioService.Salvar(entidade);
+                }
+                else{
+                    retorno.Sucesso = false;
+                    retorno.Tipo = HttpStatusCode.BadRequest;
+                    retorno.Mensagem = "Prencha os dados corretamente";
+                }
+                
             }
             catch (Exception ex)
             {
-
+                retorno.Sucesso = false;
+                retorno.Tipo = HttpStatusCode.InternalServerError;
+                retorno.Mensagem = "Erro ao processar sua requisição, tente novamente mais tarde.";
             }
 
-            return "retprno";
+            return retorno;
 
         }
-        
-        // PUT: api/Usuario/5
+               
+        /// <summary>
+        /// Atualiza os dados de um usuário
+        /// </summary>
+        /// <param name="usuario"></param>
+        /// <returns></returns>
         [HttpPut]
-        public void Put([FromBody]Usuario usuario)
+        [Authorize("Bearer")]
+        public RetornoModel<bool, HttpStatusCode> Atualizar([FromBody]Usuario usuario)
         {
+            RetornoModel<bool, HttpStatusCode> retorno = new RetornoModel<bool, HttpStatusCode>();
+            retorno.Sucesso = true;
+            retorno.Tipo = HttpStatusCode.OK;
+            retorno.Mensagem= "Dados atualizados com sucesso";
             try
             {
-                usuarioService.Salvar(usuario);
+                if (ModelState.IsValid)
+                {
+                    usuarioService.Salvar(usuario);
+                }
+                else
+                {
+                    retorno.Sucesso = false;
+                    retorno.Tipo = HttpStatusCode.BadRequest;
+                    retorno.Mensagem = "Prencha os dados corretamente";
+                }
+
             }
             catch (Exception ex)
             {
-
+                retorno.Sucesso = false;
+                retorno.Tipo = HttpStatusCode.InternalServerError;
+                retorno.Mensagem = "Erro ao processar sua requisição, tente novamente mais tarde.";
             }
+
+            return retorno;
         }
         
+
+        /// <summary>
+        /// Deleta um usuário específico
+        /// </summary>
+        /// <param name="id"></param>
         // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        [Authorize("Bearer")]
+        public RetornoModel<bool, HttpStatusCode> Delete(int id)
         {
+            RetornoModel<bool, HttpStatusCode> retorno = new RetornoModel<bool, HttpStatusCode>();
+            retorno.Sucesso = true;
+            retorno.Tipo = HttpStatusCode.OK;
+            retorno.Mensagem = "Usuário deletado com sucesso";
+
             try
             {
-                usuarioService.Deletar(id);
+                if ( id > 0)
+                {
+                    usuarioService.Deletar(id);
+                }
+                else
+                {
+                    retorno.Sucesso = false;
+                    retorno.Tipo = HttpStatusCode.BadRequest;
+                    retorno.Mensagem = "Informe um id maior que 0!";
+                }
+
             }
             catch (Exception ex)
             {
-
+                retorno.Sucesso = false;
+                retorno.Tipo = HttpStatusCode.InternalServerError;
+                retorno.Mensagem = "Erro ao processar sua requisição, tente novamente mais tarde.";
             }
+
+            return retorno;
         }
     }
 }

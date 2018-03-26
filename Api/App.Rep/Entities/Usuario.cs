@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 
 namespace App.Rep.Entities
-{
+{    
     public class Usuario
     {
         [DataPropertyToSql(DataPropertyToSqlAttribute.ColumnType.PrimaryKey)]
@@ -20,8 +20,14 @@ namespace App.Rep.Entities
         [DataPropertyToSql("usuAtivo")]
         public bool Ativo { get; set; }
 
-        [DataPropertyToSql("usuInativo")]
+        [DataPropertyToSql("usuEmail")]
         public string Email { get; set; }
+
+        [DataPropertyToSql("usuTipoUsuario")]
+        public string TipoUsuario { get; set; }
+
+        [DataPropertyToSql("usuLogin")]
+        public string Login { get; set; }
 
         [DataPropertyToSql("usuSenha")]
         public string Senha { get; set; }

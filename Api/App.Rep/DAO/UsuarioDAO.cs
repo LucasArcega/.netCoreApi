@@ -35,7 +35,23 @@ namespace App.Rep.DAO
             using (var con = Connection)
             {
                 con.Open();
-                entidade = con.Query<Usuario>(sql, new {IdUsuario = id}).FirstOrDefault();
+                entidade = con.QueryFirstOrDefault<Usuario>(sql, new {IdUsuario = id});
+                con.Close();
+            }
+
+            return entidade;
+        }
+
+
+        public Usuario Carregar(string login)
+        {
+            string sql = EntityHelper.GetSelectAllQuery<Usuario>();
+            string.Concat(sql, " WHERE usuLogin = @Login OR usuEmail = @Login");
+            Usuario entidade = null;
+            using (var con = Connection)
+            {
+                con.Open();
+                entidade = con.QueryFirstOrDefault<Usuario>(sql, new { Login = login });
                 con.Close();
             }
 
