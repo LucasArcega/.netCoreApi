@@ -13,6 +13,8 @@ using Microsoft.AspNetCore.Mvc;
 using App.Lib.Models;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.Extensions.Configuration;
+using System.Net.Mail;
+using System.Net;
 
 namespace App.Rep.Services
 {
@@ -21,12 +23,14 @@ namespace App.Rep.Services
         private readonly IUsuarioDAL usuarioDAL;
         private TokenConfigurations tokenConfigurations;
         private SigningConfigurations signingConfiguration;
+        private IConfiguration configuration;
 
-        public UsuarioService(IUsuarioDAL usuarioDAL, [FromServices] TokenConfigurations tokenConfigurations, [FromServices] SigningConfigurations signingConfiguration)
+        public UsuarioService(IUsuarioDAL usuarioDAL, [FromServices] TokenConfigurations tokenConfigurations, [FromServices] SigningConfigurations signingConfiguration, IConfiguration configuration)
         {
             this.usuarioDAL = usuarioDAL;
             this.tokenConfigurations = tokenConfigurations;
             this.signingConfiguration = signingConfiguration;
+            this.configuration = configuration;
         }
         
         public Usuario Carregar(int id)
@@ -53,12 +57,21 @@ namespace App.Rep.Services
             }                            
         }
 
-        private void NotificarCadastro(Usuario entidade)
+
+        public void NotificarCadastro(Usuario entidade)
         {
+            SmtpClient client = new SmtpClient(configuration["MailSettings:Smtp"]);
+            client.UseDefaultCredentials = false;
+            client.Credentials = new NetworkCredential(configuration["MailSettings:Email"], configuration["MailSettings:Password"]);
 
+            MailMessage mailMessage = new MailMessage();
+            mailMessage.From = new MailAddress(configuration["MailSettings:Email"]);
+            mailMessage.To.Add(entidade.Login);
+
+            mailMessage.Body = "body";
+            mailMessage.Subject = "Cadastro realizado com sucesso!";
+            client.Send(mailMessage);
         }
-
-
         public List<Usuario> Listar()
         {
             return this.usuarioDAL.Listar();
