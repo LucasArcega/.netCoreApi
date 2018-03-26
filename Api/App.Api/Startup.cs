@@ -81,6 +81,8 @@ namespace nfc.Api
             services.AddTransient<IUsuarioService, UsuarioService>();
             services.AddTransient<IUsuarioDAL, UsuarioDAO>();
 
+            services.AddTransient<IEstabelecimentoService, EstabelecimentoService>();
+            services.AddTransient<IEstabelecimentoDAL, EstabelecimentoDAO>();
 
             // Register the Swagger generator, defining one or more Swagger documents
             services.AddSwaggerGen(c =>

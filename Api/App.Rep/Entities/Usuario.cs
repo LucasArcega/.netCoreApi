@@ -12,25 +12,34 @@ namespace App.Rep.Entities
         [DataPropertyToSql(DataPropertyToSqlAttribute.ColumnType.PrimaryKey)]
         public int IdUsuario{ get; set; }
 
-        [DataPropertyToSql("usuNome")]
+        [DataPropertyToSql]
+        //[DataPropertyToSql("usuNome")]
         public string Nome { get; set; }
 
-        [DataPropertyToSql("usuTelefone")]
+        [DataPropertyToSql]
+        //[DataPropertyToSql("usuTelefone")]
         public string Telefone { get; set; }
-        [DataPropertyToSql("usuAtivo")]
+
+        [DataPropertyToSql]
+        //[DataPropertyToSql("usuAtivo")]
         public bool Ativo { get; set; }
 
-        [DataPropertyToSql("usuEmail")]
+        [DataPropertyToSql]
+        //[DataPropertyToSql("usuEmail")]
         public string Email { get; set; }
 
-        [DataPropertyToSql("usuTipoUsuario")]
+        [DataPropertyToSql]
+        //[DataPropertyToSql("usuTipoUsuario")]
         public string TipoUsuario { get; set; }
 
-        [DataPropertyToSql("usuLogin")]
+        [DataPropertyToSql]
+        //[DataPropertyToSql("usuLogin")]
         public string Login { get; set; }
 
-        [DataPropertyToSql("usuSenha")]
+        [DataPropertyToSql]
+        //[DataPropertyToSql("usuSenha")]
         public string Senha { get; set; }
+        
     }
 }
 

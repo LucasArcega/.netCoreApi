@@ -21,7 +21,8 @@ namespace App.Rep.DAO
         {
             get
             {
-                return new NpgsqlConnection(this.configuration["ConnectionStrings:postgres"]);
+                //return new NpgsqlConnection(this.configuration["ConnectionStrings:postgres"]);
+                return new SqlConnection(this.configuration["ConnectionStrings:sqlServer"]);
             }
         }
     }

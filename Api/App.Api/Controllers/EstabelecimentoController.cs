@@ -13,62 +13,63 @@ using Microsoft.AspNetCore.Mvc;
 namespace App.Api.Controllers
 {
     [Produces("application/json")]
-    [Route("api/Usuario")]
-    public class UsuarioController : Controller
+    [Route("api/Estabelecimento")]
+    public class EstabelecimentoController : Controller
     {
+        IEstabelecimentoService estabelecimentoService;
 
-        IUsuarioService usuarioService;
-        
-        public UsuarioController(IUsuarioService service)
+        public EstabelecimentoController(IEstabelecimentoService service)
         {
-            usuarioService = service;
+            estabelecimentoService = service;
         }
 
 
         [HttpGet]
-        public JsonResult  Get()
+        public JsonResult Get()
         {
-            List<Usuario> retorno = null;
+            List<Estabelecimento> retorno = null;
             try
             {
-                retorno = usuarioService.Listar();
-            }catch(Exception ex)
+                retorno = estabelecimentoService.Listar();
+            }
+            catch (Exception ex)
             {
 
             }
             return Json(data: retorno);
         }
 
-        // GET: api/Usuario/5
+        // GET: api/Estabelecimento/5
         [HttpGet("{id}", Name = "Get")]
         public string Get(int id)
         {
             return "value";
-        }        
-        
+        }
+
         /// <summary>
-        /// Cadastra um novo usuário
+        /// Cadastra um novo estabelecimento
         /// </summary>
         /// <param name="entidade"></param>
         /// <returns></returns>
         [HttpPost]
-        public RetornoModel<bool,HttpStatusCode> Post([FromBody]Usuario entidade)
+        public RetornoModel<bool, HttpStatusCode> Post([FromBody]Estabelecimento entidade)
         {
-            RetornoModel<bool,HttpStatusCode> retorno = new RetornoModel<bool,HttpStatusCode>();
+            RetornoModel<bool, HttpStatusCode> retorno = new RetornoModel<bool, HttpStatusCode>();
             retorno.Sucesso = true;
             retorno.Tipo = HttpStatusCode.OK;
             try
             {
                 if (ModelState.IsValid)
                 {
-                    usuarioService.Salvar(entidade);
+                    estabelecimentoService.Salvar(entidade);
                 }
-                else{
+                else
+                {
                     retorno.Sucesso = false;
                     retorno.Tipo = HttpStatusCode.BadRequest;
                     retorno.Mensagem = "Prencha os dados corretamente";
                 }
-                
+
             }
             catch (Exception ex)
             {
@@ -80,25 +81,25 @@ namespace App.Api.Controllers
             return retorno;
 
         }
-               
+
         /// <summary>
-        /// Atualiza os dados de um usuário
+        /// Atualiza os dados de um estabelecimento
         /// </summary>
-        /// <param name="usuario"></param>
+        /// <param name="estabelecimento"></param>
         /// <returns></returns>
         [HttpPut]
         [Authorize("Bearer")]
-        public RetornoModel<bool, HttpStatusCode> Atualizar([FromBody]Usuario usuario)
+        public RetornoModel<bool, HttpStatusCode> Atualizar([FromBody]Estabelecimento estabelecimento)
         {
             RetornoModel<bool, HttpStatusCode> retorno = new RetornoModel<bool, HttpStatusCode>();
             retorno.Sucesso = true;
             retorno.Tipo = HttpStatusCode.OK;
-            retorno.Mensagem= "Dados atualizados com sucesso";
+            retorno.Mensagem = "Dados atualizados com sucesso";
             try
             {
                 if (ModelState.IsValid)
                 {
-                    usuarioService.Salvar(usuario);
+                    estabelecimentoService.Salvar(estabelecimento);
                 }
                 else
                 {
@@ -117,10 +118,10 @@ namespace App.Api.Controllers
 
             return retorno;
         }
-        
+
 
         /// <summary>
-        /// Deleta um usuário específico
+        /// Deleta um estabelecimento específico
         /// </summary>
         /// <param name="id"></param>
         // DELETE: api/ApiWithActions/5
@@ -131,13 +132,13 @@ namespace App.Api.Controllers
             RetornoModel<bool, HttpStatusCode> retorno = new RetornoModel<bool, HttpStatusCode>();
             retorno.Sucesso = true;
             retorno.Tipo = HttpStatusCode.OK;
-            retorno.Mensagem = "Usuário deletado com sucesso";
+            retorno.Mensagem = "Estabelecimento deletado com sucesso";
 
             try
             {
-                if ( id > 0)
+                if (id > 0)
                 {
-                    usuarioService.Deletar(id);
+                    estabelecimentoService.Deletar(id);
                 }
                 else
                 {
@@ -156,5 +157,6 @@ namespace App.Api.Controllers
 
             return retorno;
         }
+
     }
 }
