@@ -45,7 +45,6 @@ namespace App.Rep.Services
             return this.usuarioDAL.Carregar(login);
         }
 
-
         public void Salvar(Usuario entidade)
         {
             if (entidade.IdUsuario > 0)
@@ -58,7 +57,6 @@ namespace App.Rep.Services
                 usuarioDAL.Inserir(entidade);
             }                            
         }
-
 
         public void NotificarCadastro(Usuario entidade)
         {

@@ -39,6 +39,7 @@ namespace App.Rep.Entities
         [DataPropertyToSql]
         //[DataPropertyToSql("usuSenha")]
         public string Senha { get; set; }
+        
     }
 }
 
