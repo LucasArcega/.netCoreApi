@@ -21,15 +21,11 @@ namespace App.Rep.Services
     public class EstabelecimentoService:IEstabelecimentoService
     {
         private readonly IEstabelecimentoDAL estabelecimentoDAL;
-        private TokenConfigurations tokenConfigurations;
-        private SigningConfigurations signingConfiguration;
         private IConfiguration configuration;
 
-        public EstabelecimentoService(IEstabelecimentoDAL estabelecimentoDAL, [FromServices] TokenConfigurations tokenConfigurations, [FromServices] SigningConfigurations signingConfiguration, IConfiguration configuration)
+        public EstabelecimentoService(IEstabelecimentoDAL estabelecimentoDAL, IConfiguration configuration)
         {
             this.estabelecimentoDAL = estabelecimentoDAL;
-            this.tokenConfigurations = tokenConfigurations;
-            this.signingConfiguration = signingConfiguration;
             this.configuration = configuration;
         }
 
