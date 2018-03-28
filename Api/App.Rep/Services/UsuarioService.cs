@@ -100,7 +100,8 @@ namespace App.Rep.Services
             ClaimsIdentity identity = 
                 new ClaimsIdentity(new GenericIdentity(usuario.Login, "Login"),new[] {
                         new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString("N")),
-                        new Claim(JwtRegisteredClaimNames.UniqueName, usuario.Login)
+                        new Claim(JwtRegisteredClaimNames.UniqueName, usuario.Login),
+                        new Claim(JwtRegisteredClaimNames.UniqueName, usuario.IdUsuario.ToString())
                    });
 
             loginModel.Created = DateTime.Now;
