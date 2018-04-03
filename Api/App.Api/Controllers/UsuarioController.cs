@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
+using App.Api.AuthorizeAttributes;
 using App.Lib.Models;
 using App.Rep.Entities;
 using App.Rep.IServices;
@@ -22,8 +23,7 @@ namespace App.Api.Controllers
         public UsuarioController(IUsuarioService service)
         {
             usuarioService = service;
-        }
-
+        }    
 
         [HttpGet]
         public JsonResult  Get()
@@ -40,6 +40,8 @@ namespace App.Api.Controllers
         }
 
         // GET: api/Usuario/5
+        [FiscalAttribute]
+        [Authorize]
         [HttpGet("{id}", Name = "Get")]
         public string Get(int id)
         {
@@ -116,8 +118,7 @@ namespace App.Api.Controllers
             }
 
             return retorno;
-        }
-        
+        }        
 
         /// <summary>
         /// Deleta um usuário específico
@@ -145,7 +146,6 @@ namespace App.Api.Controllers
                     retorno.Tipo = HttpStatusCode.BadRequest;
                     retorno.Mensagem = "Informe um id maior que 0!";
                 }
-
             }
             catch (Exception ex)
             {

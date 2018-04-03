@@ -46,6 +46,12 @@ namespace App.Api.Controllers
                     if (usuarioDb != null)
                     {
                         retorno.Retorno = usuarioService.Login(usuario, usuarioDb);
+                        if (!retorno.Retorno.Authenticated)
+                        {
+                            retorno.Sucesso = false;
+                            retorno.Tipo = HttpStatusCode.BadRequest;
+                            retorno.Mensagem = "Senha inválida.";
+                        }
                     }
                     else{
                         retorno.Sucesso = false;
